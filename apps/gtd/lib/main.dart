@@ -15,6 +15,7 @@ void main() {
     routes: Routes(),
     onLoad: () async {
       await ReflectionService.instance.init(reflectorModel);
+      await SpService.instance.init();
       await SqliteService.instance.init();
       await Future.delayed(const Duration(seconds: 3));
     }
