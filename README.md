@@ -1,3 +1,4 @@
+```
 flutter_workspace/
 ├── apps/
 │   ├── app1/             # Flutter应用1
@@ -16,5 +17,5 @@ flutter_workspace/
 ├── .gitignore
 ├── pubspec.yaml          # 根pubspec文件（定义全局依赖管理）
 └── README.md
-
+```
 
