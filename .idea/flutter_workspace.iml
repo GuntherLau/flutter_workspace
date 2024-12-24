@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/apps/gtd/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/gtd/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/gtd/build" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/money/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/money/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/money/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/analytics/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/analytics/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/analytics/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/auth/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/auth/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/auth/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common_ui/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common_ui/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common_ui/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/database/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/database/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/database/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/localization/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/localization/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/localization/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/network/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/network/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/network/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/reflection/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/reflection/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/reflection/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/state_management/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/state_management/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/state_management/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/testing/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/theming/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/theming/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/theming/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/utils/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/utils/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/utils/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

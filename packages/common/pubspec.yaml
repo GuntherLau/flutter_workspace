@@ -1,4 +1,4 @@
-name: state_management
+name: common
 description: "A new Flutter package project."
 version: 0.0.1
 publish_to: 'none'
@@ -10,9 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.6.6
-  common:
-    path: ../common
 
 dev_dependencies:
   flutter_test:
