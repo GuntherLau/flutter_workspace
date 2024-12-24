@@ -32,6 +32,10 @@ class MainLogic extends GetxController {
     }
   }
 
+  onBottomNavClicked(int index) {
+    state.bottomNavIndex.value = index;
+  }
+
 }
 
 

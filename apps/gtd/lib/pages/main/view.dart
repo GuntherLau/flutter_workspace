@@ -36,18 +36,33 @@ class _MainPageState extends State<MainPage> {
   Widget _buildContent(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Container(
-        child: Center(
-          child: Text("GTD MainPage", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
-        ),
-      ),
+      body: _buildTabView(context),
+      bottomNavigationBar: _buildBottomNav(context),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
 
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
       ),
     );
+  }
+
+  _buildTabView(BuildContext content) {
+    return Obx(() => IndexedStack(
+      index: state.bottomNavIndex.value,
+      children: List.generate(state.pages.length, (index) => state.pages[index]).toList(),
+    ));
+  }
+
+  _buildBottomNav(BuildContext context) {
+    return Obx(() => BottomNavigationBar(
+      currentIndex: state.bottomNavIndex.value,
+      type: BottomNavigationBarType.fixed,
+      items: List.generate(state.bottomButtons.length, (index) {
+        return state.bottomButtons[index];
+      }),
+      onTap: logic.onBottomNavClicked,
+    ));
   }
 
 }
