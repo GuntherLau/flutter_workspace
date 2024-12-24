@@ -10,10 +10,11 @@ flutter_workspace/
 │   └── auth/               # 认证模块，如 OAuth2 登录
 │   └── state_management/   # 状态管理封装（比如 GetX、Provider 的封装）
 │   └── database/           # 数据库操作封装
+│   └── reflection/         # 反射相关操作
 │   └── analytics/          # 数据埋点与分析
 │   └── theming/            # 主题管理（颜色、字体、样式）
 │   └── localization/       # 多语言支持
-│   └──testing/            # 测试工具或模拟数据
+│   └── testing/            # 测试工具或模拟数据
 ├── .gitignore
 ├── pubspec.yaml          # 根pubspec文件（定义全局依赖管理）
 └── README.md
