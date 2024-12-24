@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: common,reflection
+dependency_overrides:
+  common:
+    path: ../common
+  reflection:
+    path: ../reflection

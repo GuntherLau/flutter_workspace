@@ -20,3 +20,13 @@ flutter_workspace/
 └── README.md
 ```
 
+## 使用 Melos 的流程
+
+### 安装 Melos
+```
+dart pub global activate melos
+```
+### 初始化依赖 在根目录执行以下命令，初始化并安装所有包的依赖：
+```
+melos bootstrap
+```

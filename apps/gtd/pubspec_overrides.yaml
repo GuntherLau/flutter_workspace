@@ -1,0 +1,10 @@
+# melos_managed_dependency_overrides: common,reflection,state_management,storage
+dependency_overrides:
+  common:
+    path: ../../packages/common
+  reflection:
+    path: ../../packages/reflection
+  state_management:
+    path: ../../packages/state_management
+  storage:
+    path: ../../packages/storage

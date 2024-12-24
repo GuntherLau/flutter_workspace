@@ -42,8 +42,19 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/common/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/storage/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/storage/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/storage/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>
