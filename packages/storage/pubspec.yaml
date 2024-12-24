@@ -2,6 +2,7 @@ name: storage
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
+publish_to: 'none'
 
 environment:
   sdk: ^3.5.0
@@ -10,6 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  common:
+    path: ../common
+  reflection:
+    path: ../reflection
+  sqflite: ^2.4.1
 
 dev_dependencies:
   flutter_test:

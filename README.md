@@ -9,7 +9,7 @@ flutter_workspace/
 │   └── network/            # 网络请求封装
 │   └── auth/               # 认证模块，如 OAuth2 登录
 │   └── state_management/   # 状态管理封装（比如 GetX、Provider 的封装）
-│   └── database/           # 数据库操作封装
+│   └── storage/            # 存储操作封装（比如Sqlite、shared_preferences）
 │   └── reflection/         # 反射相关操作
 │   └── analytics/          # 数据埋点与分析
 │   └── theming/            # 主题管理（颜色、字体、样式）
