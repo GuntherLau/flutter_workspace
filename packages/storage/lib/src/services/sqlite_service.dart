@@ -1,4 +1,4 @@
-import 'package:common/common.dart';
+import 'package:common/main.dart';
 import 'package:reflection/main.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
