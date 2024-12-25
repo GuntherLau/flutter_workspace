@@ -1,6 +1,7 @@
 import 'package:common/main.dart';
 import 'package:flutter/material.dart';
 import 'package:gtd/main.reflectable.dart';
+import 'package:notifications/main.dart';
 import 'package:reflection/main.dart';
 import 'package:state_management/main.dart';
 import 'package:storage/main.dart';
@@ -20,6 +21,7 @@ void main() {
             await ReflectionService.instance.init(reflectorModel);
             await SpService.instance.init();
             await SqliteService.instance.init();
+            await LocalNotificationsService.instance.init();
             await Future.delayed(const Duration(seconds: 3));
           }
       )

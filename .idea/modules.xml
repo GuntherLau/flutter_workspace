@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/packages/localization/melos_localization.iml" filepath="$PROJECT_DIR$/packages/localization/melos_localization.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/money/melos_money.iml" filepath="$PROJECT_DIR$/apps/money/melos_money.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/network/melos_network.iml" filepath="$PROJECT_DIR$/packages/network/melos_network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/notifications/melos_notifications.iml" filepath="$PROJECT_DIR$/packages/notifications/melos_notifications.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/reflection/melos_reflection.iml" filepath="$PROJECT_DIR$/packages/reflection/melos_reflection.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/state_management/melos_state_management.iml" filepath="$PROJECT_DIR$/packages/state_management/melos_state_management.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/storage/melos_storage.iml" filepath="$PROJECT_DIR$/packages/storage/melos_storage.iml" />

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gtd/pages/main/widgets/main_drawer_controller.dart';
+import 'package:notifications/main.dart';
 import 'package:theming/main.dart';
 
 import 'logic.dart';
@@ -35,9 +36,14 @@ class _TabTodayComponentState extends State<TabTodayComponent> with CustomThemeS
         actions: [
 
           IconButton(
-            icon: const Icon(Icons.list),
+            icon: const Icon(Icons.send),
             onPressed: () {
-              Get.find<MainDrawerController>().zoomDrawerController.toggle?.call();
+              print("LocalNotificationsService.instance.showNotificationImmediately");
+              LocalNotificationsService.instance.showNotificationImmediately(
+                title: 'title',
+                body: 'custom body',
+                payload: 'custom payload',
+              );
             },
           )
         ],

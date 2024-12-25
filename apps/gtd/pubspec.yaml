@@ -45,6 +45,8 @@ dependencies:
     path: ../../packages/reflection
   theming:
     path: ../../packages/theming
+  notifications:
+    path: ../../packages/notifications
   json_annotation: ^4.9.0
   flutter_zoom_drawer: ^3.2.0
 

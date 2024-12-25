@@ -18,7 +18,7 @@ class MainLogic extends GetxController {
   void onReady() {
     // TODO: implement onReady
     super.onReady();
-    test();
+    // test();
   }
 
   @override
