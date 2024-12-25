@@ -43,6 +43,8 @@ dependencies:
     path: ../../packages/storage
   reflection:
     path: ../../packages/reflection
+  theming:
+    path: ../../packages/theming
   json_annotation: ^4.9.0
 
 dev_dependencies:

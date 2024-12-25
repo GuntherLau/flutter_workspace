@@ -1,5 +1,7 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:theming/main.dart';
 
 import 'logic.dart';
 import 'state.dart';
@@ -17,8 +19,11 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildContent(context);
-
+    return ThemeSwitchingArea(
+      child: Builder(builder: (context) {
+        return _buildContent(context);
+      }),
+    );
   }
 
   @override
@@ -38,12 +43,7 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.black,
       body: _buildTabView(context),
       bottomNavigationBar: _buildBottomNav(context),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-
-          },
-          child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const CustomThemeSwitcher(),
     );
   }
 

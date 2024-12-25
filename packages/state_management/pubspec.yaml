@@ -13,6 +13,8 @@ dependencies:
   get: ^4.6.6
   common:
     path: ../common
+  theming:
+    path: ../theming
 
 dev_dependencies:
   flutter_test:

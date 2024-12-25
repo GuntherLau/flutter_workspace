@@ -3,6 +3,7 @@
 import 'package:common/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:theming/main.dart';
 
 import 'pages/framework_splash/view.dart';
 import 'routes/app_routes.dart';
@@ -26,5 +27,9 @@ Widget getCustomApp({
           RouteService.instance.pushToView(routes.initialRoute);
         }
     ),
+
+    themeMode: ThemeMode.dark,
+    theme: AppThemes.lightTheme,
+    darkTheme: AppThemes.darkTheme,
   );
 }

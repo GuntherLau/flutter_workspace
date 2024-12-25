@@ -1,4 +1,6 @@
-# melos_managed_dependency_overrides: common
+# melos_managed_dependency_overrides: common,theming
 dependency_overrides:
   common:
     path: ../common
+  theming:
+    path: ../theming
