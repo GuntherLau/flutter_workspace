@@ -1,10 +1,18 @@
-import 'package:get/get.dart';
+import 'package:state_management/main.dart';
 import 'package:storage/main.dart';
 import '../../model/user.dart';
 import 'state.dart';
+import 'widgets/main_drawer_controller.dart';
 
 class MainLogic extends GetxController {
   final MainState state = MainState();
+  final MainDrawerController mainDrawerController = MainDrawerController();
+
+  @override
+  void onInit() {
+    Get.put<MainDrawerController>(mainDrawerController);
+    super.onInit();
+  }
 
   @override
   void onReady() {
@@ -17,6 +25,7 @@ class MainLogic extends GetxController {
   void onClose() {
     // TODO: implement onClose
     super.onClose();
+    Get.delete<MainDrawerController>();
   }
 
   Future<void> test() async {

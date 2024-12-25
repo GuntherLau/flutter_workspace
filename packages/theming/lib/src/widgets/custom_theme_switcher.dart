@@ -18,7 +18,7 @@ class CustomThemeSwitcher  extends StatelessWidget {
                 ? AppThemes.darkTheme
                 : AppThemes.lightTheme,
           ),
-          icon: const Icon(Icons.brightness_3, size: 25),
+          icon: Icon(theme.brightness == Brightness.light ? Icons.sunny : Icons.brightness_3, size: 25),
         );
       },
     );

@@ -11,10 +11,10 @@ runApp(
 );
 ```
 
-## 2, mixin CustomThemeSwitchingMixin to your StatefulWidget
+## 2, mixin CustomThemeSwitchingStatefulMixin or CustomThemeSwitchingStatelessMixin to your StatefulWidget
 
 ```
-class _TabTodayComponentState extends State<TabTodayComponent> with CustomThemeSwitchingMixin<TabTodayComponent> {
+class _TabTodayComponentState extends State<TabTodayComponent> with CustomThemeSwitchingStatelessMixin<TabTodayComponent> {
   
   @override
   Widget buildWithTheme(BuildContext context) {

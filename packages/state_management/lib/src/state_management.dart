@@ -24,7 +24,7 @@ Widget getCustomApp({
           }
         },
         onCompleted: () {
-          RouteService.instance.pushToView(routes.initialRoute);
+          RouteService.instance.pushToView(routes.initialRoute, offAll: true);
         }
     ),
 

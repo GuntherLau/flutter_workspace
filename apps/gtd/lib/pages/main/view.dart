@@ -1,10 +1,12 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:theming/main.dart';
 
 import 'logic.dart';
 import 'state.dart';
+import 'widgets/main_drawer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -21,7 +23,18 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return ThemeSwitchingArea(
       child: Builder(builder: (context) {
-        return _buildContent(context);
+        return ZoomDrawer(
+          controller: logic.mainDrawerController.zoomDrawerController,
+          menuScreen: MainDrawer(),
+          mainScreen: _buildContent(context),
+          mainScreenScale: 0.2,
+          mainScreenTapClose: true,
+          borderRadius: 24.0,
+          showShadow: true,
+          angle: 0,
+          drawerShadowsBackgroundColor: Colors.grey,
+          slideWidth: MediaQuery.of(context).size.width * 0.65,
+        );
       }),
     );
   }

@@ -46,6 +46,7 @@ dependencies:
   theming:
     path: ../../packages/theming
   json_annotation: ^4.9.0
+  flutter_zoom_drawer: ^3.2.0
 
 dev_dependencies:
   flutter_test:
