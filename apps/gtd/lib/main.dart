@@ -1,6 +1,7 @@
 import 'package:common/main.dart';
 import 'package:flutter/material.dart';
 import 'package:gtd/main.reflectable.dart';
+import 'package:gtd/model/task.dart';
 import 'package:notifications/main.dart';
 import 'package:reflection/main.dart';
 import 'package:state_management/main.dart';
@@ -22,7 +23,8 @@ void main() {
             await SpService.instance.init();
             await SqliteService.instance.init();
             await LocalNotificationsService.instance.init();
-            await Future.delayed(const Duration(seconds: 3));
+
+            // await Future.delayed(const Duration(seconds: 3));
           }
       )
   ));

@@ -28,6 +28,11 @@ class SqliteService {
     );
   }
 
+  Future<List<String>> getTableNames() async {
+    List<Map<String, dynamic>> tables = await _database.rawQuery("SELECT name FROM sqlite_master WHERE type='table';");
+    return tables.map((e) => e['name'] as String).toList();
+  }
+
   // 根据传入的泛型类型T（要求实现TableCreatable接口）创建表
   Future<void> createTable<T>() async {
     String tableName = ReflectionService.instance.getClassName<T>();
@@ -38,6 +43,8 @@ class SqliteService {
       ${fields.entries.map((e) => '${e.key} ${_mapDartTypeToSqlType(e.value)}').join(', ')}
     )
     ''';
+
+    print("createTable sql: $sql");
 
     await _database.execute(sql);
   }

@@ -4,6 +4,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:theming/main.dart';
 
+import '../../widgets/custom_quick_add_task_sheet.dart';
 import 'logic.dart';
 import 'state.dart';
 import 'widgets/main_drawer.dart';
@@ -56,7 +57,12 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.black,
       body: _buildTabView(context),
       bottomNavigationBar: _buildBottomNav(context),
-      floatingActionButton: const CustomThemeSwitcher(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showCustomQuickAddTaskSheet(context);
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 

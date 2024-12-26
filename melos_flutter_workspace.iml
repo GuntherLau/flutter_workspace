@@ -47,6 +47,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/notifications/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/notifications/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/notifications/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

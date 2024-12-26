@@ -1,5 +1,6 @@
 import 'package:state_management/main.dart';
 import 'package:storage/main.dart';
+import '../../model/task.dart';
 import '../../model/user.dart';
 import 'state.dart';
 import 'widgets/main_drawer_controller.dart';
@@ -18,7 +19,11 @@ class MainLogic extends GetxController {
   void onReady() {
     // TODO: implement onReady
     super.onReady();
+    SqliteService.instance.createTable<Task>();
     // test();
+    SqliteService.instance.getTableNames().then((value) {
+      print("表名:$value");
+    });
   }
 
   @override
