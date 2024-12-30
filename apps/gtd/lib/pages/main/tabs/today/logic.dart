@@ -21,8 +21,12 @@ class TabTodayLogic extends GetxController {
   }
 
   Future<void> loadTasks() async {
-    List<Task> tasks = await SqliteService.instance.queryAll<Task>(Task.fromJson);
-    print("任务总数:${tasks.length}");
+    state.tasks.value = await SqliteService.instance.queryByFinishTime<Task>(DateTime.now(), Task.fromJson);
+    print("unfinishTasks:${state.tasks.length}");
+    for(var task in state.tasks){
+      print("task:${task.name}");
+    }
+
   }
 
 }

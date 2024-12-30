@@ -34,7 +34,7 @@ enum TaskNeedRemind {
 @reflectorModel
 @JsonSerializable()
 class Task extends JsonSerializableModel {
-  int? id;
+  String? id;
   String? name;        //  名称
   int? repeatType;     //  重复周期，0:周定期,1:周随机,2:月定期,3:月随机
   String? jsonWeek;    //  周定期
@@ -72,7 +72,7 @@ class Task extends JsonSerializableModel {
   Map<String, dynamic> toJson() => _$TaskToJson(this);
 
   Task.defaultValue() {
-    id = 0;
+    id = '';
     name = '';
     repeatType = 0;
     jsonWeek = '';
@@ -88,4 +88,8 @@ class Task extends JsonSerializableModel {
     dailyTimes = 0;
   }
 
+  @override
+  String toString() {
+    return 'Task{id: $id, name: $name, repeatType: $repeatType, jsonWeek: $jsonWeek, weekRandom: $weekRandom, jsonMonth: $jsonMonth, monthRandom: $monthRandom, needRemind: $needRemind, alarmIndex: $alarmIndex, jsonRemind: $jsonRemind, createTime: $createTime, finishTime: $finishTime, finishType: $finishType, dailyTimes: $dailyTimes}';
+  }
 }

@@ -92,6 +92,16 @@ class SqliteService {
     return null;
   }
 
+  Future<List<T>> queryByFinishTime<T extends JsonSerializableModel>(DateTime finishTime, T Function(Map<String, dynamic> json) fromJson) async {
+    String tableName = ReflectionService.instance.getTableName<T>();
+    List<Map<String, dynamic>> result = await _database.query(
+      tableName,
+      where: 'finishTime <=?',
+      whereArgs: [finishTime.millisecondsSinceEpoch],
+    );
+    return result.map((e) => fromJson(e)).toList();
+  }
+
   // 通用更新数据方法，使用泛型并适配JsonSerializableModel类型，使用反射服务类获取表名
   Future<int> update<T extends JsonSerializableModel>(T data) async {
     String tableName = ReflectionService.instance.getTableName<T>();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_udid/flutter_udid.dart';
 import 'package:gtd/model/task.dart';
 import 'package:gtd/model/user.dart';
 import 'package:state_management/main.dart';
@@ -110,7 +111,7 @@ class _CustomQuickAddTaskSheetState extends State<CustomQuickAddTaskSheet> {
 
   Future<void> createTask() async {
     Task newTask = Task();
-    newTask.id = 1;
+    newTask.id = await FlutterUdid.consistentUdid;
     newTask.name = taskNameController.text;
     newTask.repeatType = 0;
     newTask.jsonWeek = 'aaaa';
