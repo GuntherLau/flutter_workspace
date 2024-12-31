@@ -110,21 +110,30 @@ class _CustomQuickAddTaskSheetState extends State<CustomQuickAddTaskSheet> {
   }
 
   Future<void> createTask() async {
-    Task newTask = Task();
+    DateTime now = DateTime.now();
+    DateTime start = DateTime(now.year, now.month, now.day, 0, 0, 0);
+    DateTime end = DateTime(now.year, now.month, now.day, 23, 59, 59);
+    DateTimeRange range = DateTimeRange(start: start, end: end);
+    Task newTask = Task.defaultValue();
     newTask.id = await FlutterUdid.consistentUdid;
-    newTask.name = taskNameController.text;
     newTask.repeatType = 0;
-    newTask.jsonWeek = 'aaaa';
-    newTask.weekRandom = 0;
-    newTask.jsonMonth = 'aaa';
-    newTask.monthRandom = 0;
-    newTask.needRemind = 0;
-    newTask.alarmIndex = 0;
-    newTask.jsonRemind = 'aaaa';
-    newTask.createTime = DateTime.now().millisecondsSinceEpoch;
-    newTask.finishTime = DateTime.now().millisecondsSinceEpoch;
-    newTask.finishType = 0;
-    newTask.dailyTimes = 0;
+    newTask.name = taskNameController.text;
+    newTask.createTime = range.start.millisecondsSinceEpoch;
+    newTask.finishTime = range.end.millisecondsSinceEpoch;
+
+    // newTask.name = taskNameController.text;
+    // newTask.repeatType = 0;
+    // newTask.jsonWeek = 'aaaa';
+    // newTask.weekRandom = 0;
+    // newTask.jsonMonth = 'aaa';
+    // newTask.monthRandom = 0;
+    // newTask.needRemind = 0;
+    // newTask.alarmIndex = 0;
+    // newTask.jsonRemind = 'aaaa';
+    // newTask.createTime = range.start.millisecondsSinceEpoch;
+    // newTask.finishTime = range.end.millisecondsSinceEpoch;
+    // newTask.finishType = 0;
+    // newTask.dailyTimes = 0;
     await SqliteService.instance.insert<Task>(newTask);
     RouteService.instance.popView();
   }

@@ -1,4 +1,5 @@
 import 'package:common/main.dart';
+import 'package:flutter/widgets.dart';
 import 'package:reflection/main.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -9,13 +10,14 @@ class SqliteService {
   SqliteService._internal();
   static SqliteService get instance => _instance;
 
-  late Database _database;
+  late Database database;
+  
 
   Future<void> init({ FutureVoidCallback? onCreate }) async {
     print("SqliteService.init");
     String path = await getDatabasesPath();
     print("getDatabasesPath $path");
-    _database = await openDatabase(
+    database = await openDatabase(
       join(path, 'database.db'),
       onCreate: (database, version) async {
         // 这里暂不做具体表创建，留给具体业务去定义
@@ -29,7 +31,7 @@ class SqliteService {
   }
 
   Future<List<String>> getTableNames() async {
-    List<Map<String, dynamic>> tables = await _database.rawQuery("SELECT name FROM sqlite_master WHERE type='table';");
+    List<Map<String, dynamic>> tables = await database.rawQuery("SELECT name FROM sqlite_master WHERE type='table';");
     return tables.map((e) => e['name'] as String).toList();
   }
 
@@ -46,7 +48,7 @@ class SqliteService {
 
     print("createTable sql: $sql");
 
-    await _database.execute(sql);
+    await database.execute(sql);
   }
 
   String _mapDartTypeToSqlType(String dartType) {
@@ -68,20 +70,20 @@ class SqliteService {
   Future<int> insert<T extends JsonSerializableModel>(T data) async {
     String tableName = ReflectionService.instance.getTableName<T>();
     Map<String, dynamic> jsonData = data.toJson();
-    return await _database.insert(tableName, jsonData);
+    return await database.insert(tableName, jsonData);
   }
 
   // 通用查询所有数据方法，使用泛型返回列表并适配JsonSerializableModel类型
   Future<List<T>> queryAll<T extends JsonSerializableModel>(T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
-    List<Map<String, dynamic>> result = await _database.query(tableName);
+    List<Map<String, dynamic>> result = await database.query(tableName);
     return result.map((e) => fromJson(e)).toList();
   }
 
   // 通用根据条件查询数据方法，使用泛型返回单个对象或null并适配JsonSerializableModel类型
   Future<T?> queryById<T extends JsonSerializableModel>(int id, T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
-    List<Map<String, dynamic>> result = await _database.query(
+    List<Map<String, dynamic>> result = await database.query(
       tableName,
       where: 'id =?',
       whereArgs: [id],
@@ -92,12 +94,22 @@ class SqliteService {
     return null;
   }
 
-  Future<List<T>> queryByFinishTime<T extends JsonSerializableModel>(DateTime finishTime, T Function(Map<String, dynamic> json) fromJson) async {
+  // Future<List<T>> queryByFinishTime<T extends JsonSerializableModel>(DateTime finishTime, T Function(Map<String, dynamic> json) fromJson) async {
+  //   String tableName = ReflectionService.instance.getTableName<T>();
+  //   List<Map<String, dynamic>> result = await database.query(
+  //     tableName,
+  //     where: 'finishTime <=?',
+  //     whereArgs: [finishTime.millisecondsSinceEpoch],
+  //   );
+  //   return result.map((e) => fromJson(e)).toList();
+  // }
+
+  Future<List<T>> queryByCondition<T extends JsonSerializableModel>(String where, List<dynamic> whereArgs, T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
-    List<Map<String, dynamic>> result = await _database.query(
+    List<Map<String, dynamic>> result = await database.query(
       tableName,
-      where: 'finishTime <=?',
-      whereArgs: [finishTime.millisecondsSinceEpoch],
+      where: where,
+      whereArgs: whereArgs,
     );
     return result.map((e) => fromJson(e)).toList();
   }
@@ -106,7 +118,7 @@ class SqliteService {
   Future<int> update<T extends JsonSerializableModel>(T data) async {
     String tableName = ReflectionService.instance.getTableName<T>();
     Map<String, dynamic> jsonData = data.toJson();
-    return await _database.update(
+    return await database.update(
       tableName,
       jsonData,
       where: 'id =?',
@@ -117,14 +129,14 @@ class SqliteService {
   // 通用删除数据方法，使用泛型并适配JsonSerializableModel类型，使用反射服务类获取表名
   Future<int> delete<T extends JsonSerializableModel>(int id) async {
     String tableName = ReflectionService.instance.getTableName<T>();
-    return await _database.delete(tableName, where: 'id =?', whereArgs: [id]);
+    return await database.delete(tableName, where: 'id =?', whereArgs: [id]);
   }
 
   // 分页查询方法，使用泛型返回分页后的列表并适配JsonSerializableModel类型，使用反射服务类获取表名
   Future<List<T>> queryByPage<T extends JsonSerializableModel>(int page, int pageSize, T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
     int offset = (page - 1) * pageSize;
-    List<Map<String, dynamic>> result = await _database.query(
+    List<Map<String, dynamic>> result = await database.query(
       tableName,
       limit: pageSize,
       offset: offset,

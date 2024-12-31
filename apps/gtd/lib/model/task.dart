@@ -5,6 +5,7 @@ import '../main.dart';
 part 'task.g.dart';
 
 enum TaskRepeatType {
+  noRepeat,
   weekRegular,
   weekRandom,
   monthRegular,
@@ -12,16 +13,18 @@ enum TaskRepeatType {
 }
 
 extension TaskRepeatTypeExtension on TaskRepeatType {
-  int get value {
+  String get name {
     switch (this) {
+      case TaskRepeatType.noRepeat:
+        return '不重复';
       case TaskRepeatType.weekRegular:
-        return 0;
+        return '周定期';
       case TaskRepeatType.weekRandom:
-        return 1;
+        return '周随机';
       case TaskRepeatType.monthRegular:
-        return 2;
+        return '月定期';
       case TaskRepeatType.monthRandom:
-        return 3;
+        return '月随机';
     }
   }
 }
@@ -36,7 +39,7 @@ enum TaskNeedRemind {
 class Task extends JsonSerializableModel {
   String? id;
   String? name;        //  名称
-  int? repeatType;     //  重复周期，0:周定期,1:周随机,2:月定期,3:月随机
+  int? repeatType;     //  重复周期，0:不重复,1:周定期,2:周随机,3:月定期,4:月随机
   String? jsonWeek;    //  周定期
   int? weekRandom;     //  周随机
   String? jsonMonth;   //  月定期
