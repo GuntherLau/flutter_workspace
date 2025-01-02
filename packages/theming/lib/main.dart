@@ -8,3 +8,4 @@ export 'src/mix/custom_theme_switching_stateless_mixin.dart';
 export 'src/widgets/custom_theme_provider.dart';
 export 'src/widgets/custom_theme_switching_widget.dart';
 export 'src/widgets/custom_theme_switcher.dart';
+export 'src/services/theme_service.dart';

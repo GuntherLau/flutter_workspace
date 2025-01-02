@@ -14,7 +14,8 @@ class AppThemes {
     extensions: <ThemeExtension<dynamic>>{CustomExtensionStyle(
         riveScaffoldBackgroundColor: const Color(0xFF329CFF),
         backgroundColor: const Color(0xFFF7F7FC),
-        primaryTextColor: AppColors.black
+        primaryTextColor: AppColors.black,
+        drawerBackgroundColor: Colors.white
     )},
 
     // fontFamily: AppTextStyles.fontFamily,
@@ -53,7 +54,8 @@ class AppThemes {
       extensions: <ThemeExtension<dynamic>>{CustomExtensionStyle(
           riveScaffoldBackgroundColor: const Color(0xFF394058),
           backgroundColor: const Color(0xFF010101),
-          primaryTextColor: AppColors.white
+          primaryTextColor: AppColors.white,
+          drawerBackgroundColor: Colors.black
       )},
 
       // fontFamily: AppTextStyles.fontFamily,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
 
-  static final Color pageLightBackground = "#Ff2f6fb".color;
+  static final Color pageLightBackground = "#f0f0f0".color;
   static final Color pageDarkBackground = "#F223355".color;
 
   static final Color primary = "#F50C9FF".color;
