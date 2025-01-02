@@ -8,10 +8,6 @@ scripts:
   test: melos exec -- flutter test # 执行所有包的单元测试
   lint: melos exec -- flutter analyze # 运行静态分析检查
   format: melos exec -- dart format . # 格式化代码
-  run:gtd:
-    run: melos exec -- flutter run lib/main.dart
-    select-package:
-      scope: 'gtd'
 
 # 版本号与环境配置（可选）
 version: 1.0.0
