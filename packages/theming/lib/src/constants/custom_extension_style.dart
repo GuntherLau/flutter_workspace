@@ -7,12 +7,14 @@ class CustomExtensionStyle extends ThemeExtension<CustomExtensionStyle> {
   final Color? backgroundColor;
   final Color? primaryTextColor;
   final Color? drawerBackgroundColor;
+  final Color? calenderCellBgColor;
 
-  const CustomExtensionStyle({
+  CustomExtensionStyle({
     required this.riveScaffoldBackgroundColor,
     required this.backgroundColor,
     required this.primaryTextColor,
-    required this.drawerBackgroundColor
+    required this.drawerBackgroundColor,
+    this.calenderCellBgColor
   });
 
   @override
@@ -20,13 +22,15 @@ class CustomExtensionStyle extends ThemeExtension<CustomExtensionStyle> {
     Color? riveScaffoldBackgroundColor,
     Color? backgroundColor,
     Color? primaryTextColor,
-    Color? drawerBackgroundColor
+    Color? drawerBackgroundColor,
+    Color? calenderCellBgColor
   }) {
     return CustomExtensionStyle(
         riveScaffoldBackgroundColor: riveScaffoldBackgroundColor ?? this.riveScaffoldBackgroundColor,
         backgroundColor: backgroundColor ?? this.backgroundColor,
         primaryTextColor: primaryTextColor ?? this.primaryTextColor,
-        drawerBackgroundColor: drawerBackgroundColor ?? this.drawerBackgroundColor
+        drawerBackgroundColor: drawerBackgroundColor ?? this.drawerBackgroundColor,
+        calenderCellBgColor: calenderCellBgColor ?? this.calenderCellBgColor
     );
   }
 
@@ -39,7 +43,8 @@ class CustomExtensionStyle extends ThemeExtension<CustomExtensionStyle> {
         riveScaffoldBackgroundColor: Color.lerp(riveScaffoldBackgroundColor, other.riveScaffoldBackgroundColor, t),
         backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t),
         primaryTextColor: Color.lerp(primaryTextColor, other.primaryTextColor, t),
-        drawerBackgroundColor: Color.lerp(drawerBackgroundColor, other.drawerBackgroundColor, t)
+        drawerBackgroundColor: Color.lerp(drawerBackgroundColor, other.drawerBackgroundColor, t),
+        calenderCellBgColor: Color.lerp(calenderCellBgColor, other.calenderCellBgColor, t)
     );
   }
 

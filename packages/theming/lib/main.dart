@@ -9,3 +9,4 @@ export 'src/widgets/custom_theme_provider.dart';
 export 'src/widgets/custom_theme_switching_widget.dart';
 export 'src/widgets/custom_theme_switcher.dart';
 export 'src/services/theme_service.dart';
+export 'src/constants/custom_extension_style.dart';

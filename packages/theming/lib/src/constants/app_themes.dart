@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_custom_style.dart';
 import 'app_text_styles.dart';
 import 'custom_extension_style.dart';
 import 'custom_bottom_nav_styles.dart';
@@ -11,12 +12,7 @@ class AppThemes {
   static final lightTheme = ThemeData(
     useMaterial3: true,
 
-    extensions: <ThemeExtension<dynamic>>{CustomExtensionStyle(
-        riveScaffoldBackgroundColor: const Color(0xFF329CFF),
-        backgroundColor: const Color(0xFFF7F7FC),
-        primaryTextColor: AppColors.black,
-        drawerBackgroundColor: Colors.white
-    )},
+    extensions: <ThemeExtension<dynamic>>{AppCustomStyle.lightTheme},
 
     // fontFamily: AppTextStyles.fontFamily,
     // textTheme: TextThemes.lightTextTheme,
@@ -51,12 +47,7 @@ class AppThemes {
   static final darkTheme = ThemeData(
       useMaterial3: true,
 
-      extensions: <ThemeExtension<dynamic>>{CustomExtensionStyle(
-          riveScaffoldBackgroundColor: const Color(0xFF394058),
-          backgroundColor: const Color(0xFF010101),
-          primaryTextColor: AppColors.white,
-          drawerBackgroundColor: Colors.black
-      )},
+      extensions: <ThemeExtension<dynamic>>{AppCustomStyle.darkTheme},
 
       // fontFamily: AppTextStyles.fontFamily,
       // textTheme: TextThemes.darkTextTheme,
