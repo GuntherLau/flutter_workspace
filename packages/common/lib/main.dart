@@ -6,3 +6,4 @@ export 'src/services/event_service/event_listener.dart';
 export 'src/services/event_service/event_service.dart';
 export 'src/extensions/string.dart';
 export 'src/extensions/color.dart';
+export 'src/extensions/datetime.dart';
