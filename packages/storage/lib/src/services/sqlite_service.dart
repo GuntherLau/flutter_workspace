@@ -61,6 +61,8 @@ class SqliteService {
         return 'TEXT';
       case 'bool':
         return 'INTEGER'; // SQLite doesn't support BOOLEAN directly
+      case 'List<String>':
+        return 'String';
       default:
         throw UnsupportedError('Unsupported Dart type: $dartType');
     }

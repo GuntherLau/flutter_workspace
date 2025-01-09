@@ -9,13 +9,15 @@ class CustomIconButton extends StatelessWidget {
     required this.icon,
     required this.press,
     this.numOfItem = 0,
-    this.color
+    this.color,
+    this.backgroundColor
   });
 
   final IconData icon;
   final int numOfItem;
   final GestureTapCallback press;
   final Color? color;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class CustomIconButton extends StatelessWidget {
             width: 40,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: const Color(0xFF979797).withOpacity(0.1),
+                color: backgroundColor ?? const Color(0xFF979797).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12)
               // shape: BoxShape.circle,
             ),
