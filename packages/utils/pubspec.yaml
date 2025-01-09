@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_timezone: ^4.0.0
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:

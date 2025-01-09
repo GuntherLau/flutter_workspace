@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:uuid/uuid.dart';
+
 class RandomUtil {
 
   static int nextInt({ int min = 0, int max = 100 }) {
@@ -15,6 +17,10 @@ class RandomUtil {
         nextInt(max: 255),
         1
     );
+  }
+
+  static String uuid() {
+    return const Uuid().v8();
   }
 
 }
