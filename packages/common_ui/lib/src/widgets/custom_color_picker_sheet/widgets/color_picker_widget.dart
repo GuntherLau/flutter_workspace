@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../color_picker_service.dart';
+import '../service.dart';
 import 'color_category_view.dart';
 import 'color_page_view.dart';
 

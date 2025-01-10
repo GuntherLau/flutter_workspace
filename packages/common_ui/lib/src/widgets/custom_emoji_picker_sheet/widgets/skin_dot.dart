@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'skin_tones.dart';
+import '../model/skin_tones.dart';
 
 class SkinDot extends StatelessWidget {
   final int? skin;

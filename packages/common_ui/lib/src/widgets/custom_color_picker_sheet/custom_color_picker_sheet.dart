@@ -1,8 +1,8 @@
 import 'package:common_ui/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'color_picker_service.dart';
-import 'color_picker_widget/color_picker_widget.dart';
+import 'service.dart';
+import 'widgets/color_picker_widget.dart';
 
 
 class CustomColorPickerSheet extends StatefulWidget {

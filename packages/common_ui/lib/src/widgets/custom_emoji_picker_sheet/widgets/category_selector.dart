@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'category_icon.dart';
+import '../model/category_icon.dart';
 
 class CategorySelector extends StatelessWidget {
   final bool selected;

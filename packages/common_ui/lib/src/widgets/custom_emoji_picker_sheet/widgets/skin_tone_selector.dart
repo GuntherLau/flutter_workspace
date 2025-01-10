@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'skin_dot.dart';
-import 'skin_tones.dart';
+import '../model/skin_tones.dart';
 
 class SkinToneSelector extends StatefulWidget {
   final Function(int) onSkinChanged;

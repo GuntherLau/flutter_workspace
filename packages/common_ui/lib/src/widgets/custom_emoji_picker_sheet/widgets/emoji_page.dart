@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'emoji_internal_data.dart';
+import '../model/emoji_internal_data.dart';
 
 class EmojiPage extends StatelessWidget {
   final int rows;

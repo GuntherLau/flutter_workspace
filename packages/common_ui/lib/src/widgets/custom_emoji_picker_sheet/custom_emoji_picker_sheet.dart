@@ -8,14 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import '../custom_icon_button.dart';
-import 'category.dart';
-import 'category_icon.dart';
-import 'category_selector.dart';
-import 'emoji_data.dart';
-import 'emoji_internal_data.dart';
-import 'emoji_page.dart';
-import 'group.dart';
-import 'skin_tone_selector.dart';
+import 'model/category.dart';
+import 'model/category_icon.dart';
+import 'service.dart';
+import 'widgets/category_selector.dart';
+import 'model/emoji_data.dart';
+import 'model/emoji_internal_data.dart';
+import 'widgets/emoji_page.dart';
+import 'model/group.dart';
+import 'widgets/skin_tone_selector.dart';
 
 Future<EmojiData?> showCustomEmojiPickerSheet(BuildContext context, {
   bool withTitle = false,
@@ -76,6 +77,9 @@ class CustomEmojiPickerSheet extends StatefulWidget {
 
   @override
   State<CustomEmojiPickerSheet> createState() => _CustomEmojiPickerSheetState();
+
+  static CustomEmojiPickerService get service => CustomEmojiPickerService.instance;
+
 }
 
 class _CustomEmojiPickerSheetState extends State<CustomEmojiPickerSheet> {
@@ -84,7 +88,7 @@ class _CustomEmojiPickerSheetState extends State<CustomEmojiPickerSheet> {
   List<EmojiInternalData> _emojiSearch = [];
   EmojiData? _selectedEmoji;
 
-  final List<EmojiInternalData> _emojis = [];
+  List<EmojiInternalData> _emojis = [];
   final Map<Category, Group> _groups = {
     Category.smileys: Group(
       Category.smileys,
@@ -440,13 +444,9 @@ class _CustomEmojiPickerSheetState extends State<CustomEmojiPickerSheet> {
   }
 
   loadEmoji(BuildContext context) async {
-    const path = 'packages/common_ui/assets/json/emoji.json';
-    String data = await rootBundle.loadString(path);
-    final emojiList = json.decode(data);
-    for (var emojiJson in emojiList) {
-      EmojiInternalData data = EmojiInternalData.fromJson(emojiJson);
-      _emojis.add(data);
-    }
+    List<EmojiInternalData> emojis = await CustomEmojiPickerService.instance.loadData();
+    _emojis = [...emojis];
+
     // Per Category, create pages
     for (Category category in order) {
       Group group = _groups[category]!;
@@ -475,9 +475,7 @@ class _CustomEmojiPickerSheetState extends State<CustomEmojiPickerSheet> {
   }
 
   void searchEmoji(String text) {
-    List<EmojiInternalData> newEmojis = _emojis.where((element) {
-      return element.shortName!.toLowerCase().contains(text);
-    }).toList();
+    List<EmojiInternalData> newEmojis = CustomEmojiPickerService.instance.searchEmoji(text);
     setState(() {
       _emojiSearch = newEmojis;
     });
