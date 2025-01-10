@@ -11,6 +11,7 @@ import 'services/route_service.dart';
 
 Widget getCustomApp({
   required AppRoutes routes,
+  required Translations messages,
   FutureVoidCallback? onLoad,
 }) {
   return GetMaterialApp(
@@ -27,9 +28,12 @@ Widget getCustomApp({
           RouteService.instance.pushToView(routes.initialRoute, offAll: true);
         }
     ),
-
+    //  主题
     themeMode: ThemeMode.dark,
     theme: AppThemes.lightTheme,
     darkTheme: AppThemes.darkTheme,
+    //  国际化
+    translations: messages,
+    locale: const Locale("en", "US"),
   );
 }
