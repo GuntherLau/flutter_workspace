@@ -474,8 +474,8 @@ class _CustomEmojiPickerSheetState extends State<CustomEmojiPickerSheet> {
     });
   }
 
-  void searchEmoji(String text) {
-    List<EmojiInternalData> newEmojis = CustomEmojiPickerService.instance.searchEmoji(text);
+  Future<void> searchEmoji(String text) async {
+    List<EmojiInternalData> newEmojis = await CustomEmojiPickerService.instance.searchEmoji(text);
     setState(() {
       _emojiSearch = newEmojis;
     });

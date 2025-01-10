@@ -30,14 +30,20 @@ class CustomEmojiPickerService {
     return _emojis;
   }
 
-  List<EmojiInternalData> searchEmoji(String text) {
+  Future<List<EmojiInternalData>> searchEmoji(String text) async {
+    if(_emojis.isEmpty) {
+      await loadData();
+    }
     List<EmojiInternalData> newEmojis = _emojis.where((element) {
       return element.shortName!.toLowerCase().contains(text);
     }).toList();
     return newEmojis;
   }
 
-  EmojiData? findById(String id, { int skin = 0 }) {
+  Future<EmojiData?> findById(String id, { int skin = 0 }) async {
+    if(_emojis.isEmpty) {
+      await loadData();
+    }
     for (var emoji in _emojis) {
       if(emoji.id == id) {
         EmojiData emojiData = EmojiData(
