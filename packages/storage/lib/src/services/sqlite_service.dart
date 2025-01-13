@@ -61,8 +61,6 @@ class SqliteService {
         return 'TEXT';
       case 'bool':
         return 'INTEGER'; // SQLite doesn't support BOOLEAN directly
-      case 'List<String>':
-        return 'String';
       default:
         throw UnsupportedError('Unsupported Dart type: $dartType');
     }
@@ -83,7 +81,7 @@ class SqliteService {
   }
 
   // 通用根据条件查询数据方法，使用泛型返回单个对象或null并适配JsonSerializableModel类型
-  Future<T?> queryById<T extends JsonSerializableModel>(int id, T Function(Map<String, dynamic> json) fromJson) async {
+  Future<T?> queryById<T extends JsonSerializableModel>(String id, T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
     List<Map<String, dynamic>> result = await database.query(
       tableName,
