@@ -94,16 +94,12 @@ class SqliteService {
     return null;
   }
 
-  // Future<List<T>> queryByFinishTime<T extends JsonSerializableModel>(DateTime finishTime, T Function(Map<String, dynamic> json) fromJson) async {
-  //   String tableName = ReflectionService.instance.getTableName<T>();
-  //   List<Map<String, dynamic>> result = await database.query(
-  //     tableName,
-  //     where: 'finishTime <=?',
-  //     whereArgs: [finishTime.millisecondsSinceEpoch],
-  //   );
-  //   return result.map((e) => fromJson(e)).toList();
-  // }
-
+  // 通用根据条件查询数据方法，使用泛型返回列表并适配JsonSerializableModel类型，使用反射服务类获取表名
+  // where参数为条件，whereArgs为条件参数
+  // 示例：queryByCondition<User>('name = ?', ['张三']);
+  // 查询name为张三的用户
+  // 示例：queryByCondition<User>('age > ?', [18]);
+  // 查询年龄大于18的用户
   Future<List<T>> queryByCondition<T extends JsonSerializableModel>(String where, List<dynamic> whereArgs, T Function(Map<String, dynamic> json) fromJson) async {
     String tableName = ReflectionService.instance.getTableName<T>();
     List<Map<String, dynamic>> result = await database.query(
@@ -112,6 +108,36 @@ class SqliteService {
       whereArgs: whereArgs,
     );
     return result.map((e) => fromJson(e)).toList();
+  }
+
+  // 通用根据条件删除数据方法，使用泛型并适配JsonSerializableModel类型，使用反射服务类获取表名
+  // where参数为条件，whereArgs为条件参数
+  // 返回删除的行数
+  // 示例：deleteByCondition<User>('name = ?', ['张三']);
+  // 删除name为张三的用户
+  Future<int> deleteByCondition<T extends JsonSerializableModel>(String where, List<dynamic> whereArgs) async {
+    String tableName = ReflectionService.instance.getTableName<T>();
+    return await database.delete(
+      tableName,
+      where: where,
+      whereArgs: whereArgs,
+    );
+  }
+
+  // 通用根据条件更新数据方法，使用泛型并适配JsonSerializableModel类型，使用反射服务类获取表名
+  // where参数为条件，whereArgs为条件参数，values为要更新的数据
+  // 返回更新的行数
+  // 示例：updateByCondition<User>('name =
+  // ?', ['张三'], {'name': '李四', 'age': 20});
+  // 将name为张三的用户的name更新为李四，age更新为20
+  Future<int> updateByCondition<T extends JsonSerializableModel>(String where, List<dynamic> whereArgs, Map<String, dynamic> values) async {
+    String tableName = ReflectionService.instance.getTableName<T>();
+    return await database.update(
+      tableName,
+      values,
+      where: where,
+      whereArgs: whereArgs,
+    );
   }
 
   // 通用更新数据方法，使用泛型并适配JsonSerializableModel类型，使用反射服务类获取表名
